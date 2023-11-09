@@ -121,7 +121,7 @@ const ImageUploader = ({ section, property, heading, index }) => {
     }, [imageUrl]);
 
     return (
-        <div className="mb-3 mx-1 shadow-sm" key={identifier}>
+        <div className="mb-3 mx-1 shadow-sm" >
             {/* photo upload */}
             <div className="pt-1 pb-1 shadow-sm  w-[130px]     flex-col justify-center items-center mx-auto">
                 <label
@@ -144,12 +144,11 @@ const ImageUploader = ({ section, property, heading, index }) => {
                     {selectedFile ||
                     formValues?.carPhotos?.[section]?.[property] ? (
                         <Image
-                        src={
-                            ( selectedFile && URL.createObjectURL(selectedFile)) ||
-                             formValues?.carPhotos?.[section]?.[
-                                 property
-                             ]
-                         }
+                            src={
+                                (selectedFile &&
+                                    URL.createObjectURL(selectedFile)) ||
+                                formValues?.carPhotos?.[section]?.[property]
+                            }
                             width={200}
                             height={200}
                             alt="image"
@@ -167,7 +166,10 @@ const ImageUploader = ({ section, property, heading, index }) => {
                             formValues?.carPhotos?.[section]?.[property] ? (
                                 <Image
                                     src={
-                                       ( selectedFile && URL.createObjectURL(selectedFile)) ||
+                                        (selectedFile &&
+                                            URL.createObjectURL(
+                                                selectedFile
+                                            )) ||
                                         formValues?.carPhotos?.[section]?.[
                                             property
                                         ]
@@ -252,12 +254,14 @@ const Photos = () => {
                     <div className="flex  bg-gray-100 px-1 w-full items-center gap-5 overflow-scroll">
                         {Object.keys(sections[section]).map(
                             (property, index) => (
-                                <ImageUploader
-                                    index={index}
-                                    section={section}
-                                    property={property}
-                                    heading={sections[section][property]}
-                                />
+                                <div>
+                                    <ImageUploader
+                                        index={index}
+                                        section={section}
+                                        property={property}
+                                        heading={sections[section][property]}
+                                    />
+                                </div>
                             )
                         )}
                     </div>
