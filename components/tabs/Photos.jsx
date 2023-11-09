@@ -254,7 +254,7 @@ const Photos = () => {
                     <div className="flex  bg-gray-100 px-1 w-full items-center gap-5 overflow-scroll">
                         {Object.keys(sections[section]).map(
                             (property, index) => (
-                                <div>
+                                <div key={index}>
                                     <ImageUploader
                                         index={index}
                                         section={section}
