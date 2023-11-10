@@ -195,7 +195,7 @@ const RegisteredStateDropdown = () => {
             <SelectContent className="w-[100vw] mx-auto left-0 top-0 absolute h-[40vh] overflow-scroll">
                 <SelectGroup className="">
                     <SelectLabel>Registered State</SelectLabel>
-{/* 
+                    {/* 
                     <input
                         type="text"
                         placeholder="Search State"
@@ -341,7 +341,7 @@ const FuelDropdown = () => {
             <SelectTrigger className="w-full">
                 <SelectValue placeholder="Fuel Type" />
             </SelectTrigger>
-            <SelectContent className="w-full h-[95vh] overflow-scroll">
+            <SelectContent className="w-full  overflow-scroll">
                 <SelectGroup>
                     <SelectLabel>Fuel Type</SelectLabel>
                     <SelectItem value="Petrol">Petrol</SelectItem>
@@ -1166,25 +1166,13 @@ const CarDetails = () => {
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
                     placeholder="YYYY"
                     required=""
-                    value={
-                        formValues?.carDetails?.manufactureDate
-                            ? new Date(
-                                  formValues.carDetails.manufactureDate
-                              ).getFullYear()
-                            : ""
-                    }
+                    value={formValues?.carDetails?.manufactureDate}
                     onChange={(e) => {
-                        // Ensure that the value is within the specified range
-                        if (e.target.value >= 1900 && e.target.value <= 2099) {
-                            const newYear = e.target.value;
-                            // Convert the selected year to a full date (e.g., January 1st of the selected year)
-                            const newDate = new Date(newYear, 0, 1);
-                            updateFormValues(
-                                "carDetails",
-                                "manufactureDate",
-                                newDate.toISOString()
-                            );
-                        }
+                        updateFormValues(
+                            "carDetails",
+                            "manufactureDate",
+                            e.target.value
+                        );
                     }}
                 />
             </div>
