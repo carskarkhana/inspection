@@ -51,7 +51,7 @@ const InspectionDropdown = () => {
             <SelectTrigger className="w-full">
                 <SelectValue placeholder="Inspection Type" />
             </SelectTrigger>
-            <SelectContent className="w-full h-[95vh] overflow-scroll">
+            <SelectContent className="w-full   overflow-scroll">
                 <SelectGroup>
                     <SelectLabel>Inspection Type</SelectLabel>
                     <SelectItem value="home">Home Inspection</SelectItem>
@@ -114,7 +114,7 @@ const CirtificateBadDropdown = ({ cirtificate, setCirtificate }) => {
                     }
                 />
             </SelectTrigger>
-            <SelectContent className="w-full h-[95vh] overflow-scroll">
+            <SelectContent className="w-full   overflow-scroll">
                 <SelectGroup>
                     <SelectLabel>Remarks</SelectLabel>
                     <SelectItem value="Missing">Missing</SelectItem>
@@ -250,7 +250,7 @@ const BrandDropdown = () => {
             <SelectTrigger className="w-full">
                 <SelectValue placeholder="Brand" />
             </SelectTrigger>
-            <SelectContent className="w-full h-[95vh] overflow-scroll">
+            <SelectContent className="w-full h-[40vh] overflow-scroll">
                 <SelectGroup>
                     <SelectLabel>Brand</SelectLabel>
 
@@ -377,7 +377,7 @@ const TransmissionDropdown = () => {
             <SelectTrigger className="w-full">
                 <SelectValue placeholder="Transmission Type" />
             </SelectTrigger>
-            <SelectContent className="w-full h-[95vh] overflow-scroll">
+            <SelectContent className="w-full  overflow-scroll">
                 <SelectGroup>
                     <SelectLabel>Transmission Type</SelectLabel>
                     <SelectItem value="automatic">Automatic</SelectItem>
@@ -411,7 +411,7 @@ const RoadTaxDropdown = () => {
             <SelectTrigger className="w-full">
                 <SelectValue placeholder="Road Tax Paid" />
             </SelectTrigger>
-            <SelectContent className="w-full h-[95vh] overflow-scroll">
+            <SelectContent className="w-full  overflow-scroll">
                 <SelectGroup>
                     <SelectLabel>Road Tax Paid</SelectLabel>
                     <SelectItem value="Life Time">Yes - Life Time</SelectItem>
@@ -488,7 +488,7 @@ const KeysDropdown = () => {
             <SelectTrigger className="w-full">
                 <SelectValue placeholder="Number of keys" />
             </SelectTrigger>
-            <SelectContent className="w-full h-[95vh] overflow-scroll">
+            <SelectContent className="w-full overflow-scroll">
                 <SelectGroup>
                     <SelectLabel>Number of keys</SelectLabel>
                     <SelectItem value="Single">Single </SelectItem>
@@ -845,13 +845,7 @@ const CarDetails = () => {
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
                     placeholder=" "
                     required=""
-                    value={
-                        formValues?.carDetails?.registerationDate
-                            ? new Date(
-                                  formValues.carDetails.registerationDate
-                              ).getFullYear()
-                            : ""
-                    }
+                    value={formValues?.carDetails?.registerationDate}
                     onChange={(e) => {
                         // Ensure that the value is within the specified range
                         // if (e.target.value >= 1900 && e.target.value <= 2099) {
