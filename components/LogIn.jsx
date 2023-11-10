@@ -40,7 +40,6 @@ function Login() {
   return (
     <div className="h-screen bg-gradient-to-tl from-green-400 to-indigo-900 w-full py-16 px-4">
       <div className="flex flex-col items-center justify-center">
-        
         <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
           <p
             tabIndex={0}
@@ -107,11 +106,13 @@ function Login() {
           </div>
           <div className="mt-8">
             <button
+              className={`block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg ${
+                isFormValid
+                  ? "active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple"
+                  : "cursor-not-allowed opacity-50"
+              }`}
               onClick={handleSignIn}
-              disabled={isFormValid}
-              role="button"
-              aria-label="create my account"
-              className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
+              disabled={!isFormValid}
             >
               Create my account
             </button>
