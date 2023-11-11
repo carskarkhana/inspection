@@ -32,6 +32,12 @@ export const formData2 = {
 export const formData = {
     // customer details
     inspectionEngineerName: "",
+    inspectionDate: new Date(Date.now()).toLocaleDateString("en-IN", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    }),
+    qcApproved: false,
     customerDetails: {
         leadId: "",
         city: "",

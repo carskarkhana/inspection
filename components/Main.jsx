@@ -33,7 +33,6 @@ import {
     faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
-
 const tabs = [
     {
         id: 1,
@@ -163,7 +162,7 @@ export function AlertDialogDemo() {
                     <AlertDialogCancel className="border-green-700">
                         Cancel
                     </AlertDialogCancel>
-                    
+
                     <AlertDialogAction
                         className="bg-red-500"
                         onClick={handleNavigateToHomePage}
@@ -341,10 +340,11 @@ const Main = () => {
     }, [formValues]);
 
     const validateFormValues = () => {
-        return calculatePercentageFilled(formValues) >= 0;
+        return calculatePercentageFilled(formValues) >= 50;
     };
     const handleSubmitForm = () => {
         console.log("formValues:  ", formValues);
+         
 
         if (validateFormValues()) {
             setFormUploadingStarted(true);
