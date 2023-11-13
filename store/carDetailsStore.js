@@ -2,14 +2,14 @@ import { create } from "zustand";
 import { formData } from "@/data/formData";
 
 const carDetailsStore = create((set) => ({
-    selectedCirtificateFile: "",
+    selectedCirtificateFile: [],
     setSelectedCirtificateFile: (file) =>
         set({ selectedCirtificateFile: file }),
 
     selectedChassisFile: "",
     setSelectedChassisFile: (file) => set({ selectedChassisFile: file }),
 
-    cirtificateUrl: "",
+    cirtificateUrl: [],
     setCirtificateUrl: (url) => set({ cirtificateUrl: url }),
 
     chassisUrl: "",

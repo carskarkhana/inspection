@@ -589,21 +589,87 @@ const CarDetails = () => {
     };
 
     // Certificate picture section
+    // const handleCirtificateFileChange = (event) => {
+    //     const files = event.target.files;
+    //     setSelectedCirtificateFile(files);
+    //     setCirtificateUrl("");
+    // };
     const handleCirtificateFileChange = (event) => {
-        const file = event.target.files[0];
-        setSelectedCirtificateFile(file);
-        setCirtificateUrl("");
+        const files = event.target.files;
+        setSelectedCirtificateFile(Array.from(files));
+        setCirtificateUrl([]);
+    };
+
+    const handleUploadInsurance = (e) => {
+        e.preventDefault();
+        if (selectedCarPhotosFiles.length < 10) {
+            toast.error("Please select at least 10 photos");
+            return;
+        }
+        handleFileUpload(
+            selectedCarPhotosFiles,
+            setPhotosUrls,
+            setInsuranceUploadingStarted,
+            "Insurance Photo"
+        );
+    };
+
+    // ***************************************************
+
+    const handleMultipleFileUpload = async (
+        files, // Array of files to upload
+        setFileUrls, // Function to set the download URLs in state
+        setUploadingStarted, // Function to control uploading state
+        type // Type of files being uploaded
+    ) => {
+        // Start the uploading process
+        setUploadingStarted(true);
+
+        try {
+            // Create an array of promises for uploading each file
+            const uploadPromises = files.map(async (file) => {
+                // Upload the file and get its download URL
+                const downloadURL = await uploadFileToStorage(file);
+                return downloadURL;
+            });
+
+            // Wait for all uploads to complete
+            const downloadURLs = await Promise.all(uploadPromises);
+
+            // Set the download URLs in state
+            setFileUrls(downloadURLs);
+
+            // Display a success message
+            toast.success(`${type}s uploaded successfully`);
+        } catch (error) {
+            // Handle any errors during the upload
+            toast.error(`Error uploading ${type}s: ${error.message}`);
+        } finally {
+            // Finish the uploading process
+            setUploadingStarted(false);
+        }
     };
 
     const handleUploadCirtificate = (e) => {
         e.preventDefault();
-        handleFileUpload(
+        handleMultipleFileUpload(
             selectedCirtificateFile,
             setCirtificateUrl,
             setCirtificateUploadingStarted,
             "Certificate"
         );
     };
+    // const handleUploadCirtificate = (e) => {
+    //     e.preventDefault();
+    //     handleFileUpload(
+    //         selectedCirtificateFile,
+    //         setCirtificateUrl,
+    //         setCirtificateUploadingStarted,
+    //         "Certificate"
+    //     );
+    // };
+
+    // **************************************************************
 
     // Chassis picture section
     const handleChassisFileChange = (event) => {
@@ -720,36 +786,44 @@ const CarDetails = () => {
                             type="file"
                             id="file_input_cirtificate"
                             accept="image/*"
-                            // capture="camera"
+                            multiple // Add the 'multiple' attribute for multi-select
                             className="w-0 h-0 opacity-0 absolute"
                             onChange={handleCirtificateFileChange}
+                            // handleCirtificateFileChange
                         />
-                        {selectedCirtificateFile ? (
-                            <Image
-                                src={URL.createObjectURL(
-                                    selectedCirtificateFile
-                                )}
-                                width={200}
-                                height={200}
-                                alt="cirtificate Image"
-                                className=" w-[125px] h-[125px] object-cover rounded-lg cursor-pointer"
-                                onClick={() =>
-                                    document
-                                        .getElementById(
-                                            "file_input_cirtificate"
-                                        )
-                                        .click()
-                                }
-                            />
+
+                        {selectedCirtificateFile.length > 0 ? (
+                            <div className="relative">
+                                {" "}
+                                <Image
+                                    src={URL.createObjectURL(
+                                        selectedCirtificateFile[0]
+                                    )}
+                                    width={200}
+                                    height={200}
+                                    alt="cirtificate Image"
+                                    className=" w-[125px] h-[125px] object-cover rounded-lg cursor-pointer"
+                                    onClick={() =>
+                                        document
+                                            .getElementById(
+                                                "file_input_cirtificate"
+                                            )
+                                            .click()
+                                    }
+                                />
+                                <span class="absolute text-black text-xs left-[100%] top-0 rounded-md px-1 bg-purple-300 border border-red-500">
+                                    {selectedCirtificateFile.length} photos
+                                </span>
+                            </div>
                         ) : (
                             <label
                                 htmlFor="file_input_cirtificate"
                                 className="rounded-lg  w-[125px] h-[125px] bg-blue-500 flex items-center justify-center hover-bg-blue-600 text-white cursor-pointer"
                             >
-                                {selectedCirtificateFile ? (
+                                {selectedCirtificateFile.length > 0 ? (
                                     <Image
                                         src={URL.createObjectURL(
-                                            selectedCirtificateFile
+                                            selectedCirtificateFile[0]
                                         )}
                                         width={200}
                                         height={200}
@@ -773,16 +847,19 @@ const CarDetails = () => {
                         type="submit"
                         className={`px-3 mx-auto my-2 py-1   hover-bg-opavariant-80   rounded text-sm text-white flex justify-between items-center ${
                             formValues?.carDetails?.registerationCirtificate
-                                ?.photo
+                                ?.photo.length > 0
                                 ? "bg-green-500"
                                 : "bg-indigo-700 "
                         }`}
+                        // onClick={handleUploadCirtificate}
                         onClick={handleUploadCirtificate}
                     >
                         <p>
                             {cirtificateUploadingStarted
                                 ? "Uploading"
-                                : cirtificateUrl
+                                : formValues?.carDetails
+                                      ?.registerationCirtificate?.photo.length >
+                                  0
                                 ? "Uploaded"
                                 : "Upload"}
                         </p>
@@ -807,13 +884,15 @@ const CarDetails = () => {
                         ) : (
                             ""
                         )}
-                        {!cirtificateUploadingStarted && cirtificateUrl && (
-                            <FontAwesomeIcon
-                                icon={faCheckDouble}
-                                style={{ color: "#00ff11" }}
-                                className="w-[20px] h-[20px] ml-2"
-                            />
-                        )}
+                        {!cirtificateUploadingStarted &&
+                            formValues?.carDetails?.registerationCirtificate
+                                ?.photo.length > 0 && (
+                                <FontAwesomeIcon
+                                    icon={faCheckDouble}
+                                    style={{ color: "#00ff11" }}
+                                    className="w-[20px] h-[20px] ml-2"
+                                />
+                            )}
                     </button>
                 </div>
             </div>

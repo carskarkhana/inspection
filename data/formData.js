@@ -38,6 +38,7 @@ export const formData = {
         day: "2-digit",
     }),
     qcApproved: false,
+    isAuctionLive: false,
     customerDetails: {
         leadId: "",
         city: "",
@@ -51,7 +52,7 @@ export const formData = {
         registerationCirtificate: {
             condition: "",
             remarks: "",
-            photo: "",
+            photo: [],
         },
         registeredState: {},
         registerationYear: "",
