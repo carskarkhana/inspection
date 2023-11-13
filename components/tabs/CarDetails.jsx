@@ -786,6 +786,7 @@ const CarDetails = () => {
                             type="file"
                             id="file_input_cirtificate"
                             accept="image/*"
+                            capture="camera"
                             multiple // Add the 'multiple' attribute for multi-select
                             className="w-0 h-0 opacity-0 absolute"
                             onChange={handleCirtificateFileChange}
@@ -957,6 +958,7 @@ const CarDetails = () => {
                 <input
                     type="string"
                     id="chassisNumber"
+                    
                     name="chassisNumber"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
                     placeholder="chassisNumber"
@@ -980,7 +982,7 @@ const CarDetails = () => {
                         type="file"
                         id="file_input_chassis"
                         accept="image/*"
-                        // capture="camera"
+                        capture="camera"
                         className="w-0 h-0 opacity-0 absolute"
                         onChange={handleChassisFileChange}
                     />
