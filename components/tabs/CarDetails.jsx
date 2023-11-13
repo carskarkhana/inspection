@@ -16,7 +16,7 @@ import carDetailsStore from "@/store/carDetailsStore";
 import { uploadFileToStorage } from "@/api/actions";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
+import { faCheckDouble, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import {
     Select,
@@ -511,41 +511,23 @@ const CarDetails = () => {
 
         selectedCirtificateFile,
         setSelectedCirtificateFile,
-        selectedChassisFile,
-        setSelectedChassisFile,
-        chassisUrl,
-        setChassisUrl,
-        chassis,
-        setChassis,
-
         cirtificateUrl,
         setCirtificateUrl,
-
         cirtificate,
         setCirtificate,
         cirtificateUploadingStarted,
         setCirtificateUploadingStarted,
+
+        chassisUrl,
+        setChassisUrl,
+        chassis,
+        setChassis,
+        selectedChassisFile,
+        setSelectedChassisFile,
+
         chassisUploadingStarted,
         setChassisUploadingStarted,
     } = carDetailsStore();
-
-    // const [selectedChassisFile, setSelectedChassisFile] = useState("");
-    // const [cirtificateUrl, setCirtificateUrl] = useState("");
-    // const [chassisUrl, setChassisUrl] = useState("");
-    // const [chassis, setChassis] = useState({
-    //     number: "",
-    //     photo: "",
-    // });
-    // const [cirtificate, setCirtificate] = useState({
-    //     condition: "",
-    //     remarks: "",
-    //     photo: "",
-    // });
-
-    // const [cirtificateUploadingStarted, setCirtificateUploadingStarted] =
-    //     useState(false);
-    // const [chassisUploadingStarted, setChassisUploadingStarted] =
-    //     useState(false);
 
     const updateFormValues = (objectName, field, value) => {
         setFormValues({
@@ -597,27 +579,45 @@ const CarDetails = () => {
         }
     };
 
-    // Certificate picture section
-    // const handleCirtificateFileChange = (event) => {
-    //     const files = event.target.files;
-    //     setSelectedCirtificateFile(files);
-    //     setCirtificateUrl("");
-    // };
     const handleCirtificateFileChange = (event) => {
         event.preventDefault();
-        const files = Array.from(event.target.files);
-        setSelectedCirtificateFile(files);
-        setCirtificateUrl([]);
 
-        console.log("files are : ", files);
-        console.log("selectedCirtificateFile are : ", selectedCirtificateFile);
-        // when i want to upload image to firebase as soon as it is selected
-        handleMultipleFileUpload(
-            files,
-            setCirtificateUrl,
-            setCirtificateUploadingStarted,
-            "Certificate"
-        );
+        // const files = Array.from(event.target.files);
+        // setSelectedCirtificateFile(files);
+        // setCirtificateUrl([]);
+
+        // console.log("files are : ", files);
+        // console.log("selectedCirtificateFile are : ", selectedCirtificateFile);
+        // // when i want to upload image to firebase as soon as it is selected
+        // handleMultipleFileUpload(
+        //     files,
+        //     setCirtificateUrl,
+        //     setCirtificateUploadingStarted,
+        //     "Certificate"
+        // );
+
+        setChassisUrl("");
+
+        const file = event.target.files[0];
+
+        if (file) {
+            setCirtificateUploadingStarted(true);
+
+            try {
+                uploadFileToStorage(file).then((downloadURL) => {
+                    setCirtificateUrl([...cirtificateUrl, downloadURL]);
+                    console.log(` available at`, downloadURL);
+                    console.log("cirtificateUrl: ", cirtificateUrl);
+                });
+            } catch (error) {
+                toast.error(`Error uploading : ${error.message}`);
+            } finally {
+                setCirtificateUploadingStarted(false);
+            }
+        } else {
+            setCirtificateUploadingStarted(false);
+            toast.warning(`Please select a file first.`);
+        }
     };
 
     const handleUploadInsurance = (e) => {
@@ -679,15 +679,6 @@ const CarDetails = () => {
             "Certificate"
         );
     };
-    // const handleUploadCirtificate = (e) => {
-    //     e.preventDefault();
-    //     handleFileUpload(
-    //         selectedCirtificateFile,
-    //         setCirtificateUrl,
-    //         setCirtificateUploadingStarted,
-    //         "Certificate"
-    //     );
-    // };
 
     // **************************************************************
 
@@ -787,7 +778,7 @@ const CarDetails = () => {
                     Registeration Cirtificate Condition
                 </label>
 
-                <div className=" flex justify-between items-center w-full pt-1 ">
+                <div className="my-5 flex justify-between items-center w-full pt-1 ">
                     <button
                         onClick={() => handleCirtificate("Good")}
                         className={`px-6 py-2 rounded-lg border border-gray-300 shadow-md ${
@@ -817,75 +808,53 @@ const CarDetails = () => {
                     </button>
                 </div>
                 {/* registeration picture */}
-                <div className="pt-1 pb-1 shadow-md  w-full   flex-col justify-center items-center mx-auto">
-                    <label
-                        className="block text-sm font-medium my-1 pl-1 text-gray-900"
-                        htmlFor="file_input_cirtificate"
-                    >
-                        Registeration Cirtificate Picture
-                    </label>
-                    <div className=" relative text-center mx-auto flex justify-center items-center   w-full">
-                        <input
-                            type="file"
-                            id="file_input_cirtificate"
-                            accept="image/*"
-                            // capture="camera"
-                            capture="environment"
-                            multiple // Add the 'multiple' attribute for multi-select
-                            className="w-0 h-0 opacity-0 absolute"
-                            onChange={handleCirtificateFileChange}
-                        />
-
-                        {selectedCirtificateFile.length > 0 ? (
-                            <div className="relative">
-                                <Image
-                                    src={URL.createObjectURL(
-                                        selectedCirtificateFile[0]
-                                    )}
-                                    width={200}
-                                    height={200}
-                                    alt="cirtificate Image"
-                                    className=" w-[125px] h-[125px] object-cover rounded-lg cursor-pointer"
-                                    onClick={() =>
-                                        document
-                                            .getElementById(
-                                                "file_input_cirtificate"
-                                            )
-                                            .click()
-                                    }
-                                />
-
-                                <span class="absolute text-black text-xs left-[100%] top-0 rounded-md px-1 bg-purple-300 border border-red-500">
-                                    {selectedCirtificateFile.length} photos
-                                </span>
-                            </div>
-                        ) : (
-                            <label
-                                htmlFor="file_input_cirtificate"
-                                className="rounded-lg  w-[125px] h-[125px] bg-blue-500 flex items-center justify-center hover-bg-blue-600 text-white cursor-pointer"
-                            >
-                                {selectedCirtificateFile.length > 0 ? (
-                                    <Image
-                                        src={URL.createObjectURL(
-                                            selectedCirtificateFile[0]
-                                        )}
-                                        width={200}
-                                        height={200}
-                                        alt="cirtificate Image"
-                                        className="w-full h-48 object-cover rounded-lg"
-                                        onClick={() =>
-                                            document
-                                                .getElementById(
-                                                    "file_input_cirtificate"
-                                                )
-                                                .click()
-                                        }
-                                    />
-                                ) : (
-                                    "Upload Photo"
-                                )}
-                            </label>
-                        )}
+                 
+                <label
+                    className="block text-sm font-medium my-1 pl-1 text-gray-900"
+                    htmlFor="file_input_cirtificate "
+                >
+                    Registeration Cirtificate Picture
+                </label>
+                <div className="pt-1 pb-1 shadow-md  w-full   flex justify-center items-center mx-auto flex-col">
+                    <input
+                        type="file"
+                        id="file_input_cirtificate"
+                        accept="image/*"
+                        // capture="camera"
+                        capture="environment"
+                        multiple // Add the 'multiple' attribute for multi-select
+                        className="w-0 h-0 opacity-0 absolute"
+                        onChange={handleCirtificateFileChange}
+                    />
+                    <div className="flex items-center justify-end my-5">
+                        {formValues?.carDetails?.registerationCirtificate?.photo
+                            .length > 0
+                            ? formValues?.carDetails?.registerationCirtificate?.photo.map(
+                                  (item, index) => (
+                                      <Image
+                                          src={item}
+                                          width={70}
+                                          height={70}
+                                          alt="cirtificate Image"
+                                          className="  h-[70px] px-1 object-cover rounded-lg"
+                                      />
+                                  )
+                              )
+                            : ""}
+                        <div
+                            className="w-[60px] h-[60px] border-2 box-content border-sky-500 mx-auto rounded-md justify-center items-center flex cursor-pointer"
+                            onClick={() =>
+                                document
+                                    .getElementById("file_input_cirtificate")
+                                    .click()
+                            }
+                        >
+                            <FontAwesomeIcon
+                                icon={faPlus}
+                                style={{ color: "#005eff" }}
+                                className="w-[40px] h-[40px]"
+                            />
+                        </div>
                     </div>
                     <button
                         type="submit"
@@ -939,7 +908,7 @@ const CarDetails = () => {
                     </button>
                 </div>
             </div>
-
+            {/* **************************************************************************************** */}
             {/* Registered State */}
             <div className="mb-3 mx-1">
                 <label
