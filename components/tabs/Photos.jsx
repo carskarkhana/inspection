@@ -99,10 +99,21 @@ const ImageUploader = ({ section, property, heading, index }) => {
     };
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectedFile(file);
         setImageUrl("");
+
+        // when i want to upload image to firebase as soon as it is selected
+        handleFileUpload(
+            file,
+            setImageUrl,
+            setImageUploadingStarted,
+            property
+        );
+         
     };
+        // when i want to upload image to firebase after user click on sumbit button
 
     const handleUploadImage = (e) => {
         e.preventDefault();
@@ -197,7 +208,7 @@ const ImageUploader = ({ section, property, heading, index }) => {
                             ? "bg-green-500"
                             : "bg-indigo-700 "
                     }`}
-                    onClick={handleUploadImage}
+                    // onClick={handleUploadImage}
                 >
                     <p className="w-full  ">
                         {imageUploadingStarted

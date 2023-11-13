@@ -173,7 +173,7 @@ export function DamagesPopup({ checkedItems, setCheckedItems }) {
         <Dialog>
             <DialogTrigger asChild>
                 <div
-                    className={`w-full flex items-center justify-center py-[6px] rounded-md  border border-gray-300 mx-auto   ${
+                    className={`w-full cursor-pointer flex items-center justify-center py-[6px] rounded-md  border border-gray-300 mx-auto   ${
                         formValues?.damages?.length > 0
                             ? "bg-green-500"
                             : "bg-sky-500"
@@ -182,6 +182,13 @@ export function DamagesPopup({ checkedItems, setCheckedItems }) {
                     <span className="text-sm text-white">
                         Click here to choose damages
                     </span>
+                    {checkedItems.length > 0 ? (
+                        <span class="inline-flex items-center justify-center w-4 h-4 ml-2 text-xs font-semibold text-red-800 bg-orange-200 rounded-full">
+                            {checkedItems.length}{" "}
+                        </span>
+                    ) : (
+                        " "
+                    )}
                 </div>
             </DialogTrigger>
             <DialogContent className="w-full h-[95vh] overflow-scroll">
@@ -288,9 +295,16 @@ const ImageUploader2 = ({ index, item }) => {
     };
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectedFile(file);
         setImageUrl("");
+        handleFileUpload(
+            file,
+            setImageUrl,
+            setImageUploadingStarted,
+            "file"
+        );
     };
 
     const handleUploadImage = (e) => {
@@ -419,7 +433,7 @@ const ImageUploader2 = ({ index, item }) => {
                             ? "bg-green-500"
                             : "bg-indigo-700 "
                     }`}
-                    onClick={handleUploadImage}
+                     // onClick={handleUploadImage}
                 >
                     <p className="w-full  ">
                         {imageUploadingStarted

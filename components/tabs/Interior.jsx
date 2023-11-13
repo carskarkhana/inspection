@@ -141,9 +141,16 @@ export function WarninLightsPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "a photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -230,7 +237,7 @@ export function WarninLightsPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                               // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -310,9 +317,16 @@ export function DeashboardPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "a photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -398,7 +412,7 @@ export function DeashboardPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -476,9 +490,16 @@ export function RoofInnerLiningPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "a photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -565,7 +586,7 @@ export function RoofInnerLiningPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -645,9 +666,16 @@ export function ACPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "a photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -734,7 +762,7 @@ export function ACPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -814,9 +842,16 @@ export function MusicSystemPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "a photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -903,7 +938,7 @@ export function MusicSystemPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -983,9 +1018,16 @@ export function CentralLockPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "a photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1072,7 +1114,7 @@ export function CentralLockPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1152,9 +1194,16 @@ export function PowerWindowsPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "a photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1241,7 +1290,7 @@ export function PowerWindowsPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1321,9 +1370,16 @@ export function FloodExposurePopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "a photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1410,7 +1466,7 @@ export function FloodExposurePopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted

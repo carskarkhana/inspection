@@ -12,10 +12,10 @@ export const uploadForm = async (formObj) => {
             collection(db, "carsInspectionData"),
             formObj
         );
-        return docRef;
         toast.success(
             "backend: document Uploaded Successfully, with id: " + docRef.id
         );
+        return docRef;
     } catch (error) {
         console.error("Error adding document: ", error);
         toast.error("backend: Error adding document: " + error);

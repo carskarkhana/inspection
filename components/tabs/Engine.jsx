@@ -107,10 +107,17 @@ export function ExhaustSmokePopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "interCooler photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -197,7 +204,7 @@ export function ExhaustSmokePopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -282,10 +289,17 @@ export function TurboDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "interCooler photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -371,7 +385,7 @@ export function TurboDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -456,9 +470,16 @@ export function InterCoolerDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "interCooler photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -545,7 +566,7 @@ export function InterCoolerDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -629,10 +650,17 @@ export function SilencerDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "interCooler photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -718,7 +746,7 @@ export function SilencerDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -802,10 +830,17 @@ export function BackCompressionDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "interCooler photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -892,7 +927,7 @@ export function BackCompressionDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -978,10 +1013,17 @@ export function AlternatorDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "interCooler photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1066,7 +1108,7 @@ export function AlternatorDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1151,10 +1193,17 @@ export function RadiatorDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "interCooler photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1240,7 +1289,7 @@ export function RadiatorDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1324,10 +1373,17 @@ export function EngineLeakDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "interCooler photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1413,7 +1469,7 @@ export function EngineLeakDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1587,7 +1643,7 @@ export function EngineLeakDropdown() {
 //                             <button
 //                                 type="submit"
 //                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-//                                 onClick={handleUploadFile}
+//                                 // onClick={handleUploadFile}
 //                             >
 //                                 <p>
 //                                     {fileUploadingStarted

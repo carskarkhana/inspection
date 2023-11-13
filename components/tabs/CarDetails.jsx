@@ -502,16 +502,25 @@ const KeysDropdown = () => {
 const CarDetails = () => {
     const { formValues, setFormValues } = formStore();
     const {
+        selectedVinFile,
+        setSelectedVinFile,
+        vinUrl,
+        setVinUrl,
+        vinUploadingStarted,
+        setVinUploadingStarted,
+
         selectedCirtificateFile,
         setSelectedCirtificateFile,
         selectedChassisFile,
         setSelectedChassisFile,
-        cirtificateUrl,
-        setCirtificateUrl,
         chassisUrl,
         setChassisUrl,
         chassis,
         setChassis,
+
+        cirtificateUrl,
+        setCirtificateUrl,
+
         cirtificate,
         setCirtificate,
         cirtificateUploadingStarted,
@@ -595,9 +604,20 @@ const CarDetails = () => {
     //     setCirtificateUrl("");
     // };
     const handleCirtificateFileChange = (event) => {
-        const files = event.target.files;
-        setSelectedCirtificateFile(Array.from(files));
+        event.preventDefault();
+        const files = Array.from(event.target.files);
+        setSelectedCirtificateFile(files);
         setCirtificateUrl([]);
+
+        console.log("files are : ", files);
+        console.log("selectedCirtificateFile are : ", selectedCirtificateFile);
+        // when i want to upload image to firebase as soon as it is selected
+        handleMultipleFileUpload(
+            files,
+            setCirtificateUrl,
+            setCirtificateUploadingStarted,
+            "Certificate"
+        );
     };
 
     const handleUploadInsurance = (e) => {
@@ -678,6 +698,20 @@ const CarDetails = () => {
         setSelectedChassisFile(file);
 
         setChassisUrl("");
+        handleFileUpload(
+            file,
+            setChassisUrl,
+            setChassisUploadingStarted,
+            "Chassis Photo"
+        );
+    };
+    const handleVinFileChange = (event) => {
+        const file = event.target.files[0];
+        console.log("file: ", file);
+        setSelectedVinFile(file);
+
+        setVinUrl("");
+        handleFileUpload(file, setVinUrl, setVinUploadingStarted, "VIN Photo");
     };
     useEffect(() => {
         console.log("selectedChassisFile: ", selectedChassisFile);
@@ -718,6 +752,15 @@ const CarDetails = () => {
             photo: cirtificateUrl,
         });
     }, [cirtificateUrl]);
+    useEffect(() => {
+        setFormValues({
+            ...formValues,
+            carDetails: {
+                ...formValues.carDetails,
+                vinPhoto: vinUrl,
+            },
+        });
+    }, [vinUrl]);
 
     return (
         <section className="bg-gray-100 relative">
@@ -781,21 +824,20 @@ const CarDetails = () => {
                     >
                         Registeration Cirtificate Picture
                     </label>
-                    <div className="relative text-center mx-auto flex justify-center items-center   w-full">
+                    <div className=" relative text-center mx-auto flex justify-center items-center   w-full">
                         <input
                             type="file"
                             id="file_input_cirtificate"
                             accept="image/*"
                             // capture="camera"
+                            capture="environment"
                             multiple // Add the 'multiple' attribute for multi-select
                             className="w-0 h-0 opacity-0 absolute"
                             onChange={handleCirtificateFileChange}
-                            // handleCirtificateFileChange
                         />
 
                         {selectedCirtificateFile.length > 0 ? (
                             <div className="relative">
-                                {" "}
                                 <Image
                                     src={URL.createObjectURL(
                                         selectedCirtificateFile[0]
@@ -812,6 +854,7 @@ const CarDetails = () => {
                                             .click()
                                     }
                                 />
+
                                 <span class="absolute text-black text-xs left-[100%] top-0 rounded-md px-1 bg-purple-300 border border-red-500">
                                     {selectedCirtificateFile.length} photos
                                 </span>
@@ -846,14 +889,13 @@ const CarDetails = () => {
                     </div>
                     <button
                         type="submit"
-                        className={`px-3 mx-auto my-2 py-1   hover-bg-opavariant-80   rounded text-sm text-white flex justify-between items-center ${
+                        className={`px-3 mx-auto my-2 py-1 cursor-text  hover-bg-opavariant-80   rounded text-sm text-white flex justify-between items-center ${
                             formValues?.carDetails?.registerationCirtificate
                                 ?.photo.length > 0
                                 ? "bg-green-500"
                                 : "bg-indigo-700 "
                         }`}
                         // onClick={handleUploadCirtificate}
-                        onClick={handleUploadCirtificate}
                     >
                         <p>
                             {cirtificateUploadingStarted
@@ -918,12 +960,12 @@ const CarDetails = () => {
                     Registeration date
                 </label>
                 <input
-                    type="date"
+                    type="month"
                     // Set the maximum year
                     id="registerationDate"
                     name="registerationDate"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
-                    placeholder=" "
+                    placeholder="month-year"
                     required=""
                     value={formValues?.carDetails?.registerationDate}
                     onChange={(e) => {
@@ -947,6 +989,142 @@ const CarDetails = () => {
                 />
             </div>
 
+            {/* vin number */}
+            <div className="mb-3 mx-1">
+                <label
+                    htmlFor="vinNumber"
+                    className="block ml-1 mb-1 text-sm font-medium text-gray-900  "
+                >
+                    VIN Number
+                </label>
+                <input
+                    type="string"
+                    id="vinNumber"
+                    name="vinNumber"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
+                    placeholder="VIN number"
+                    required=""
+                    value={formValues?.carDetails?.vinNumber}
+                    // updating vinNumber
+                    onChange={(e) => {
+                        setFormValues({
+                            ...formValues,
+                            carDetails: {
+                                ...formValues.carDetails,
+                                vinNumber: e.target.value,
+                            },
+                        });
+                    }}
+                />
+            </div>
+            {/* vinNumber plate pic upload */}
+
+            {/* // selectedVinFile,
+    //     setSelectedVinFile,
+    //     vinUrl,
+    //     setVinUrl,
+    //     vinUploadingStarted,
+    //     setVinUploadingStarted,
+     */}
+            <div className="pt-1 pb-1 shadow-md  w-full   flex-col justify-center items-center mx-auto">
+                <label
+                    className="block text-sm font-medium my-1 pl-1 text-gray-900"
+                    htmlFor="file_input_vin"
+                >
+                    VIN plate picture
+                </label>
+                <div className="relative text-center mx-auto flex justify-center items-center   w-full">
+                    <input
+                        type="file"
+                        id="file_input_vin"
+                        accept="image/*"
+                        // capture="camera"
+                        className="w-0 h-0 opacity-0 absolute"
+                        onChange={handleVinFileChange}
+                    />
+                    {selectedVinFile ? (
+                        <Image
+                            src={URL.createObjectURL(selectedVinFile)}
+                            width={200}
+                            height={200}
+                            alt="vin Image"
+                            className=" w-[125px] h-[125px] object-cover rounded-lg cursor-pointer"
+                            onClick={() =>
+                                document
+                                    .getElementById("file_input_vin")
+                                    .click()
+                            }
+                        />
+                    ) : (
+                        <label
+                            htmlFor="file_input_vin"
+                            className="rounded-lg  w-[125px] h-[125px] bg-blue-500 flex items-center justify-center hover-bg-blue-600 text-white cursor-pointer"
+                        >
+                            {selectedVinFile ? (
+                                <Image
+                                    src={URL.createObjectURL(selectedVinFile)}
+                                    width={200}
+                                    height={200}
+                                    alt="vin Image"
+                                    className="w-full h-48 object-cover rounded-lg"
+                                    onClick={() =>
+                                        document
+                                            .getElementById("file_input_vin")
+                                            .click()
+                                    }
+                                />
+                            ) : (
+                                "Upload Photo"
+                            )}
+                        </label>
+                    )}
+                </div>
+                <button
+                    type="submit"
+                    className={`px-3 mx-auto my-2 py-1  cursor-text  hover-bg-opavariant-80   rounded text-sm text-white flex justify-between items-center ${
+                        formValues?.carDetails?.vinPhoto
+                            ? "bg-green-500"
+                            : "bg-indigo-700 "
+                    }`}
+                    // onClick={handleUploadChassis}
+                >
+                    <p>
+                        {vinUploadingStarted
+                            ? "Uploading"
+                            : vinUrl
+                            ? "Uploaded"
+                            : "Upload"}
+                    </p>
+                    {vinUploadingStarted ? (
+                        <div className="ml-3">
+                            <ColorRing
+                                visible={true}
+                                height="25"
+                                width="25"
+                                ariaLabel="blocks-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="blocks-wrapper"
+                                colors={[
+                                    "#e15b64",
+                                    "#f47e60",
+                                    "#f8b26a",
+                                    "#abbd81",
+                                    "#849b87",
+                                ]}
+                            />
+                        </div>
+                    ) : (
+                        ""
+                    )}
+                    {!vinUploadingStarted && vinUrl && (
+                        <FontAwesomeIcon
+                            icon={faCheckDouble}
+                            style={{ color: "#00ff11" }}
+                            className="w-[20px] h-[20px] ml-2"
+                        />
+                    )}
+                </button>
+            </div>
             {/* Chassis number */}
             <div className="mb-3 mx-1">
                 <label
@@ -958,7 +1136,6 @@ const CarDetails = () => {
                 <input
                     type="string"
                     id="chassisNumber"
-                    
                     name="chassisNumber"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
                     placeholder="chassisNumber"
@@ -1029,12 +1206,12 @@ const CarDetails = () => {
                 </div>
                 <button
                     type="submit"
-                    className={`px-3 mx-auto my-2 py-1   hover-bg-opavariant-80   rounded text-sm text-white flex justify-between items-center ${
+                    className={`px-3 mx-auto my-2 py-1 cursor-text   hover-bg-opavariant-80   rounded text-sm text-white flex justify-between items-center ${
                         formValues?.carDetails?.chassis?.photo
                             ? "bg-green-500"
                             : "bg-indigo-700 "
                     }`}
-                    onClick={handleUploadChassis}
+                    // onClick={handleUploadChassis}
                 >
                     <p>
                         {chassisUploadingStarted

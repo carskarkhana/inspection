@@ -1,34 +1,4 @@
-export const formData2 = {
-    // tab 1
-    inspectionEngineerName: "",
-    inspectionDate: "",
-    inspectionLocation: "",
-    vehicleId: "",
-    regNumber: "",
-    regYear: "",
-    regMonth: "",
-    mfgYear: "",
-
-    // tab 2
-    mfgMonth: "",
-    inspectionPlace: "",
-    isDuplicateKey: "",
-    isInsurance: "",
-    insuranceValidityDate: "",
-    isCarScrapped: "",
-    rtoState: "",
-    isRtoNocIssued: "",
-
-    // tab 3
-    isUnderHypothecation: "",
-    isCngOrLpg: "",
-    carColor: "",
-    roadTaxPaid: "",
-    cubicCapacity: "",
-    isRcAvailable: "",
-    chassisNumberStatus: "",
-};
-
+ 
 export const formData = {
     // customer details
     inspectionEngineerName: "",
@@ -48,6 +18,8 @@ export const formData = {
 
     // car details
     carDetails: {
+        vinNumber: "",
+        vinPhoto: "",
         inspectionType: "",
         registerationCirtificate: {
             condition: "",

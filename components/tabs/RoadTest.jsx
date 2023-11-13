@@ -123,10 +123,17 @@ export function StarterMotorPopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -301,9 +308,16 @@ export function SteeringFunctionPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -477,10 +491,17 @@ export function AcceleratorFunctionPopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -658,10 +679,17 @@ export function TransmissionFunctionPopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -834,10 +862,17 @@ export function BrakeFunctionPopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1009,10 +1044,17 @@ export function SuspensionFunctionPopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1190,10 +1232,17 @@ export function EngineFunctionPopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1366,10 +1415,17 @@ export function EngineNoisePopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();

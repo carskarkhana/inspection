@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import {formData} from "@/data/formData"
 
 import { calculatePercentageFilled } from "@/lib/handlers";
 
@@ -180,8 +181,10 @@ export function SheetDemo() {
         activeTab,
         setActiveTab,
         formValues,
+        setFormValues,
         formUploadingStarted,
         setFormUploadingStarted,
+        
     } = formStore();
 
     const validateFormValues = () => {
@@ -197,6 +200,7 @@ export function SheetDemo() {
                 .then((res) => {
                     console.log("res:  ", res);
                     toast.success("Form submitted successfully");
+                    setFormValues(formData)
                 })
                 .catch((err) => {
                     console.log("err:  ", err);
@@ -341,6 +345,7 @@ const Main = () => {
 
     const validateFormValues = () => {
         return calculatePercentageFilled(formValues) >= 50;
+        // return true;
     };
     const handleSubmitForm = () => {
         console.log("formValues:  ", formValues);
@@ -353,6 +358,7 @@ const Main = () => {
                 .then((res) => {
                     console.log("res:  ", res);
                     toast.success("Form submitted successfully");
+                    setFormValues(formData)
                 })
                 .catch((err) => {
                     console.log("err:  ", err);

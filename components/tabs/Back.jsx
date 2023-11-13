@@ -105,9 +105,16 @@ export function DickyDoorPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -193,7 +200,7 @@ export function DickyDoorPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -278,10 +285,17 @@ export function RearWindscreenDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -368,7 +382,7 @@ export function RearWindscreenDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                 // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -453,10 +467,17 @@ export function RearBumperPopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -542,7 +563,7 @@ export function RearBumperPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                 // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -626,10 +647,17 @@ export function SpareWheelRimDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -716,7 +744,7 @@ export function SpareWheelRimDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                 // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -801,10 +829,17 @@ export function SpareWheelTyreDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+  const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -891,7 +926,7 @@ export function SpareWheelTyreDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                 // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted

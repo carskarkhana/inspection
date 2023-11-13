@@ -71,7 +71,7 @@ const CustomerDetails = () => {
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
                     placeholder="city"
                     required=""
-                    value={formValues.customerDetails.city}
+                    value={formValues?.customerDetails?.city}
                     onChange={(e) => {
                         updateFormValues(
                             "customerDetails",
@@ -95,7 +95,7 @@ const CustomerDetails = () => {
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
                     placeholder="Lead id"
                     required=""
-                    value={formValues.customerDetails.leadId}
+                    value={formValues?.customerDetails?.leadId}
                     onChange={(e) => {
                         updateFormValues(
                             "customerDetails",
@@ -119,7 +119,7 @@ const CustomerDetails = () => {
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
                     placeholder="Car Location"
                     required=""
-                    value={formValues.customerDetails.carLocation}
+                    value={formValues?.customerDetails?.carLocation}
                     onChange={(e) => {
                         updateFormValues(
                             "customerDetails",
@@ -143,7 +143,7 @@ const CustomerDetails = () => {
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-1"
                     placeholder="registerationNumber"
                     required=""
-                    value={formValues.customerDetails.registerationNumber}
+                    value={formValues?.customerDetails?.registerationNumber}
                     onChange={(e) => {
                         updateFormValues(
                             "customerDetails",

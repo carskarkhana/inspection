@@ -2,6 +2,15 @@ import { create } from "zustand";
 import { formData } from "@/data/formData";
 
 const carDetailsStore = create((set) => ({
+  
+
+    selectedVinFile: "",
+    setSelectedVinFile: (file) => set({ selectedVinFile: file }),
+    vinUrl: "",
+    setVinUrl: (url) => set({ vinUrl: url }),
+    vinUploadingStarted: false,
+    setVinUploadingStarted: (bool) => set({ vinUploadingStarted: bool }),
+
     selectedCirtificateFile: [],
     setSelectedCirtificateFile: (file) =>
         set({ selectedCirtificateFile: file }),

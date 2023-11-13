@@ -157,10 +157,13 @@ const CarLegalDetails = () => {
         }
     };
     const handleInsuranceFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectedInsuranceFile(file);
          
         setInsuranceUrl("");
+        handleUploadInsurance(event);
+
     };
    
     const handleUploadInsurance = (e) => {
@@ -175,7 +178,7 @@ const CarLegalDetails = () => {
 
     useEffect(() => {
         updateFormValues("carLegalDetails", "insurance", {
-            ...formValues.carLegalDetails.insurance,
+            ...formValues?.carLegalDetails?.insurance,
             insuranceImage: insuranceUrl,
         });
     }, [insuranceUrl]);
@@ -339,13 +342,13 @@ const CarLegalDetails = () => {
                             </div>
                             <button
                                 type="submit"
-                                className={`px-3 mx-auto my-2 py-1   hover-bg-opavariant-80   rounded text-sm text-white flex justify-between items-center ${
+                                className={`px-3 mx-auto my-2 py-1  cursor-text  hover-bg-opavariant-80   rounded text-sm text-white flex justify-between items-center ${
                                     formValues?.carLegalDetails?.insurance
                                         ?.insuranceImage
                                         ? "bg-green-500"
                                         : "bg-indigo-700 "
                                 }`}
-                                onClick={handleUploadInsurance}
+                                // onClick={handleUploadInsurance}
                             >
                                 <p>
                                     {insuranceUploadingStarted

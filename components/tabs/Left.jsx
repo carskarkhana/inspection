@@ -183,9 +183,16 @@ export function LeftRunningBoardPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -272,7 +279,7 @@ export function LeftRunningBoardPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -360,9 +367,16 @@ export function BackLeftTyreDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -448,7 +462,7 @@ export function BackLeftTyreDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -533,9 +547,16 @@ export function LeftQuarterPanelDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -622,7 +643,7 @@ export function LeftQuarterPanelDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -709,9 +730,16 @@ export function LeftPillarCDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -797,7 +825,7 @@ export function LeftPillarCDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -883,9 +911,16 @@ export function BackLeftDoorDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -971,7 +1006,7 @@ export function BackLeftDoorDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1056,9 +1091,16 @@ export function LeftPillarBDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1144,7 +1186,7 @@ export function LeftPillarBDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1230,9 +1272,16 @@ export function FrontLeftDoorDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1319,7 +1368,7 @@ export function FrontLeftDoorDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1397,9 +1446,16 @@ export function LeftPillarADropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1485,7 +1541,7 @@ export function LeftPillarADropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1563,9 +1619,16 @@ export function FronLeftTyreDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1651,7 +1714,7 @@ export function FronLeftTyreDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1729,9 +1792,16 @@ export function FrontLeftFenderDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1818,7 +1888,7 @@ export function FrontLeftFenderDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted

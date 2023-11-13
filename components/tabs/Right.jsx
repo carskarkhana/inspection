@@ -96,10 +96,17 @@ export function FrontRightFenderPopup() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -188,7 +195,7 @@ export function FrontRightFenderPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -276,9 +283,16 @@ export function FrontRightTyreDropdown() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -365,7 +379,7 @@ export function FrontRightTyreDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -451,10 +465,17 @@ export function RightPillarADropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -541,7 +562,7 @@ export function RightPillarADropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -625,10 +646,17 @@ export function FrontRightDoorDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -715,7 +743,7 @@ export function FrontRightDoorDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -802,10 +830,17 @@ export function RoghtPillarBDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -892,7 +927,7 @@ export function RoghtPillarBDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -976,10 +1011,17 @@ export function BackRightDoorDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1066,7 +1108,7 @@ export function BackRightDoorDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1152,10 +1194,17 @@ export function RightPillarCDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1242,7 +1291,7 @@ export function RightPillarCDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1319,10 +1368,17 @@ export function BackRightTyreDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1409,7 +1465,7 @@ export function BackRightTyreDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1487,10 +1543,17 @@ export function RightQuarterPanelDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1577,7 +1640,7 @@ export function RightQuarterPanelDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -1656,10 +1719,17 @@ export function RightRunningBoardDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "frontRightTyre photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -1746,7 +1816,7 @@ export function RightRunningBoardDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted

@@ -109,9 +109,16 @@ export function FrontBumperPopup() {
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
     const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -198,7 +205,7 @@ export function FrontBumperPopup() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                   // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -284,10 +291,17 @@ export function BonnetDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -373,7 +387,7 @@ export function BonnetDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                 // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -457,10 +471,17 @@ export function FrontWindscreen() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -547,7 +568,7 @@ export function FrontWindscreen() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                 // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -631,10 +652,17 @@ export function RoofDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -720,7 +748,7 @@ export function RoofDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                 // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
@@ -805,10 +833,17 @@ export function SunRoofDropdown() {
     const [fileUrl, setFileUrl] = useState("");
     const [fileUploadingStarted, setFileUploadingStarted] = useState(false);
 
-    const handleFileChange = (event) => {
+      const handleFileChange = (event) => {
+        event.preventDefault()
         const file = event.target.files[0];
         setSelectFile(file);
         setFileUrl("");
+        handleFileUpload(
+            file,
+            setFileUrl,
+            setFileUploadingStarted,
+            "A photo"
+        );
     };
     const handleUploadFile = async (e) => {
         e.preventDefault();
@@ -895,7 +930,7 @@ export function SunRoofDropdown() {
                             <button
                                 type="submit"
                                 className="px-3 my-1 py-1 bg-indigo-700 hover:bg-opavariant-80 shadow rounded text-sm text-white flex justify-between items-center"
-                                onClick={handleUploadFile}
+                                 // onClick={handleUploadFile}
                             >
                                 <p>
                                     {fileUploadingStarted
