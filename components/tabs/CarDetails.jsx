@@ -808,7 +808,7 @@ const CarDetails = () => {
                     </button>
                 </div>
                 {/* registeration picture */}
-                 
+
                 <label
                     className="block text-sm font-medium my-1 pl-1 text-gray-900"
                     htmlFor="file_input_cirtificate "
@@ -832,6 +832,7 @@ const CarDetails = () => {
                             ? formValues?.carDetails?.registerationCirtificate?.photo.map(
                                   (item, index) => (
                                       <Image
+                                          key={index}
                                           src={item}
                                           width={70}
                                           height={70}
