@@ -37,7 +37,7 @@ export const formData = {
         month: "2-digit",
         day: "2-digit",
     }),
-    qcApproved: false,
+    qcApproved: "pending",
     isAuctionLive: false,
     customerDetails: {
         leadId: "",

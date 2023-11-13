@@ -362,7 +362,7 @@ const ImageUploader2 = ({ index, item }) => {
                         type="file"
                         id={identifier}
                         accept="image/*"
-                        // capture="camera"
+                        capture="camera"
                         className="w-0 h-0 opacity-0 absolute"
                         onChange={handleFileChange}
                     />
