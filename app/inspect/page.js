@@ -10,7 +10,7 @@ const handleBeforeUnload = (event) => {
   event.returnValue = 'Are you sure you want to leave? Your changes may not be saved.';
 };
 
-const page = () => {
+const Page = () => {
     const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -50,4 +50,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;
