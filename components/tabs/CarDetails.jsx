@@ -786,7 +786,7 @@ const CarDetails = () => {
                             type="file"
                             id="file_input_cirtificate"
                             accept="image/*"
-                            capture="camera"
+                            // capture="camera"
                             multiple // Add the 'multiple' attribute for multi-select
                             className="w-0 h-0 opacity-0 absolute"
                             onChange={handleCirtificateFileChange}
@@ -982,7 +982,7 @@ const CarDetails = () => {
                         type="file"
                         id="file_input_chassis"
                         accept="image/*"
-                        capture="camera"
+                        // capture="camera"
                         className="w-0 h-0 opacity-0 absolute"
                         onChange={handleChassisFileChange}
                     />
