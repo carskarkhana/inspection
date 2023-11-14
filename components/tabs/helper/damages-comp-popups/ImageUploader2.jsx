@@ -1,76 +1,41 @@
 import React, { useState, useEffect } from "react";
-import formStore from "@/store/formStore";
 import { toast } from "react-toastify";
+import formStore from "@/store/formStore";
 import { ColorRing } from "react-loader-spinner";
 import { uploadFileToStorage } from "@/api/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
-
-const sections = {
-    exterior: {
-        front: "Front  ",
-        frontRight: "Front Right  ",
-        frontLeft: "Front Left  ",
-        right: "Right  ",
-        back: "Back  ",
-        backRight: "Back Right  ",
-        backLeft: "Back Left  ",
-        left: "Left  ",
-        roof: "Roof  ",
-        engine: "Engine  ",
-        dickyDoorOpen: "Dicky Door Open  ",
-        frontUnderbody: "Front Underbody  ",
-        rearUnderbody: "Rear Underbody  ",
-    },
-    engineTransmission: {
-        engine: "Engine  ",
-        battery: "Battery  ",
-        coolant: "Coolant  ",
-        gear: "Gear  ",
-    },
-    interior: {
-        odometer: "Odometer  ",
-        interiorFrontRight: "Interior Front Right  ",
-        interiorRearRight: "Interior Rear Right  ",
-        interiorRearBackside: "Interior Rear Backside  ",
-        roof: "Roof  ",
-    },
-    other: {
-        alloyWheels: "Alloy Wheels  ",
-        spareTires: "Spare Tires  ",
-        toolKit: "Tool Kit  ",
-    },
-    tire: {
-        leftFrontTire: "Left Front Tire  ",
-        rightFrontTire: "Right Front Tire  ",
-        leftRearTire: "Left Rear Tire  ",
-        rightRearTire: "Right Rear Tire  ",
-        spareTire: "Spare Tire  ",
-    },
-};
 
 import Image from "next/image";
+import {
+    
+    faCheckDouble,
+} from "@fortawesome/free-solid-svg-icons";
 
-const ImageUploader = ({ section, property, heading, index }) => {
+ 
+
+import { damages } from "@/data/otherData";
+ 
+
+export const ImageUploader2 = ({ index, item }) => {
     const { formValues, setFormValues } = formStore();
     const [selectedFile, setSelectedFile] = useState(null);
     const [imageUrl, setImageUrl] = useState("");
     const [imageUploadingStarted, setImageUploadingStarted] = useState(false);
 
     // Use a unique identifier for each instance
-    const identifier = `${section}_${property}_${index}`;
+    const identifier = `${item}_${index}`;
 
     const updateFormValues = (section, field, value) => {
-        setFormValues({
-            ...formValues,
-            carPhotos: {
-                ...formValues.carPhotos,
-                [section]: {
-                    ...formValues.carPhotos[section],
+        setFormValues((prevFormValues) => ({
+            ...prevFormValues,
+            damages: {
+                ...prevFormValues.damages,
+                [item]: {
+                    ...prevFormValues.damages[item],
                     [field]: value,
                 },
             },
-        });
+        }));
     };
 
     const handleFileUpload = async (
@@ -103,17 +68,13 @@ const ImageUploader = ({ section, property, heading, index }) => {
         const file = event.target.files[0];
         setSelectedFile(file);
         setImageUrl("");
-
-        // when i want to upload image to firebase as soon as it is selected
         handleFileUpload(
             file,
             setImageUrl,
             setImageUploadingStarted,
-            property
+            "file"
         );
-         
     };
-        // when i want to upload image to firebase after user click on sumbit button
 
     const handleUploadImage = (e) => {
         e.preventDefault();
@@ -121,18 +82,41 @@ const ImageUploader = ({ section, property, heading, index }) => {
             selectedFile,
             setImageUrl,
             setImageUploadingStarted,
-            property
+            "file"
         );
     };
 
+    
     useEffect(() => {
         if (imageUrl) {
-            updateFormValues(section, property, imageUrl);
+            // console.log("image url is: ", imageUrl);
+            // console.log("form values is: ", formValues);
+            // console.log("item is: ", item);
+            // console.log("form values damages is: ", formValues?.damages);
+            // console.log(
+            //     "form values damages item is: ",
+            //     formValues?.damages[item]
+            // );
+
+            // updateFormValues(item, 'photo', imageUrl);
+
+            setFormValues({
+                ...formValues,
+                damages: {
+                    ...formValues.damages,
+                    [item]: {
+                        ...formValues.damages[item],
+                        photo: imageUrl,
+                    },
+                },
+            });
         }
     }, [imageUrl]);
 
+    // console.log("damage item: ", item);
+
     return (
-        <div className="mb-3 mx-1 shadow-sm" >
+        <div className="mb-3 mx-1 shadow-sm">
             {/* photo upload */}
             <div className="pt-1 pb-1 shadow-sm  w-[130px]     flex-col justify-center items-center mx-auto">
                 <label
@@ -140,7 +124,7 @@ const ImageUploader = ({ section, property, heading, index }) => {
                     htmlFor={identifier}
                 >
                     <p className="text-center  w-full line-clamp-1 ">
-                        {heading}
+                        {damages[item]}
                     </p>
                 </label>
                 <div className="relative text-center mx-auto flex justify-center items-center   w-full">
@@ -152,13 +136,12 @@ const ImageUploader = ({ section, property, heading, index }) => {
                         className="w-0 h-0 opacity-0 absolute"
                         onChange={handleFileChange}
                     />
-                    {selectedFile ||
-                    formValues?.carPhotos?.[section]?.[property] ? (
+                    {selectedFile || formValues?.damages?.[item]?.photo ? (
                         <Image
                             src={
                                 (selectedFile &&
                                     URL.createObjectURL(selectedFile)) ||
-                                formValues?.carPhotos?.[section]?.[property]
+                                formValues?.damages?.[item]?.photo
                             }
                             width={200}
                             height={200}
@@ -174,16 +157,14 @@ const ImageUploader = ({ section, property, heading, index }) => {
                             className="rounded-lg  w-[125px] h-[125px] bg-blue-500 flex items-center justify-center hover-bg-blue-600 text-white cursor-pointer"
                         >
                             {selectedFile ||
-                            formValues?.carPhotos?.[section]?.[property] ? (
+                            formValues?.damages?.[item]?.photo ? (
                                 <Image
                                     src={
                                         (selectedFile &&
                                             URL.createObjectURL(
                                                 selectedFile
                                             )) ||
-                                        formValues?.carPhotos?.[section]?.[
-                                            property
-                                        ]
+                                        formValues?.damages?.[item]?.[property]
                                     }
                                     width={200}
                                     height={200}
@@ -204,16 +185,16 @@ const ImageUploader = ({ section, property, heading, index }) => {
                 <button
                     type="submit"
                     className={`px-3  w-full     mx-auto my-2 py-1   hover-bg-opavariant-80   rounded text-sm text-white flex justify-between items-center ${
-                        formValues?.carPhotos?.[section]?.[property]
+                        formValues?.damages?.[item]?.photo
                             ? "bg-green-500"
                             : "bg-indigo-700 "
                     }`}
-                    // onClick={handleUploadImage}
+                     // onClick={handleUploadImage}
                 >
                     <p className="w-full  ">
                         {imageUploadingStarted
                             ? "Uploading"
-                            : formValues?.carPhotos?.[section]?.[property]
+                            : formValues?.damages?.[item]?.photo
                             ? "Uploaded"
                             : "Upload"}
                     </p>
@@ -239,7 +220,7 @@ const ImageUploader = ({ section, property, heading, index }) => {
                         ""
                     )}
                     {!imageUploadingStarted &&
-                        formValues?.carPhotos?.[section]?.[property] && (
+                        formValues?.damages?.[item]?.photo && (
                             <FontAwesomeIcon
                                 icon={faCheckDouble}
                                 style={{ color: "#00ff11" }}
@@ -251,35 +232,3 @@ const ImageUploader = ({ section, property, heading, index }) => {
         </div>
     );
 };
-
-const Photos = () => {
-    const { formValues, setFormValues } = formStore();
-
-    return (
-        <div className="flex-col">
-            {Object.keys(sections).map((section, index) => (
-                <div key={section} className=" mt-5">
-                    <p className="font-bold text-gray-700">{`Section ${
-                        index + 1
-                    }: ${section}`}</p>
-                    <div className="flex  bg-gray-100 px-1 w-full items-center gap-5 overflow-scroll">
-                        {Object.keys(sections[section]).map(
-                            (property, index) => (
-                                <div key={index}>
-                                    <ImageUploader
-                                        index={index}
-                                        section={section}
-                                        property={property}
-                                        heading={sections[section][property]}
-                                    />
-                                </div>
-                            )
-                        )}
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
-};
-
-export default Photos;

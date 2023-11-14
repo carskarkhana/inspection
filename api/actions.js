@@ -31,7 +31,7 @@ export const uploadFileToStorage = async (selectedFile) => {
     try {
         // Upload the selected file to Firebase Storage
         const snapshot = await uploadBytes(storageRef, selectedFile);
-        console.log("Uploaded a file:", snapshot.metadata.name);
+        // console.log("Uploaded a file:", snapshot.metadata.name);
 
         // Get the download URL of the uploaded file
         const downloadURL = await getDownloadURL(storageRef);

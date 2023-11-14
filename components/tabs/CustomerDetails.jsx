@@ -1,17 +1,6 @@
 import React from "react";
 
 import formStore from "@/store/formStore";
-import { rtoStatesData } from "@/data/otherData";
-
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 
 const CustomerDetails = () => {
     const { formValues, setFormValues } = formStore();

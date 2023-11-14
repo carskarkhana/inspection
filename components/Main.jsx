@@ -9,19 +9,6 @@ import { Oval } from "react-loader-spinner";
 
 import { Line, Circle } from "rc-progress";
 
-import CustomerDetails from "@/components/tabs/CustomerDetails";
-import CarDetails from "@/components/tabs/CarDetails";
-import CarLegalDetails from "@/components/tabs/CarLegalDetails";
-import Photos from "@/components/tabs/Photos";
-import Interior from "@/components/tabs/Interior";
-import RoadTest from "@/components/tabs/RoadTest";
-import Engine from "@/components/tabs/Engine";
-import Front from "@/components/tabs/Front";
-import Back from "@/components/tabs/Back";
-import Left from "@/components/tabs/Left";
-import Right from "@/components/tabs/Right";
-import Damages from "@/components/tabs/Damages";
-
 import formStore from "@/store/formStore";
 import { toast } from "react-toastify";
 import { uploadForm } from "@/api/actions";
@@ -34,80 +21,7 @@ import {
     faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
-const tabs = [
-    {
-        id: 1,
-        name: "Customer Details",
-        component: <CustomerDetails />,
-        field: "customerDetails",
-    },
-    {
-        id: 2,
-        name: "Car Details",
-        component: <CarDetails />,
-        field: "carDetails",
-    },
-    {
-        id: 3,
-        name: "Car Legal Details",
-        component: <CarLegalDetails />,
-        field: "carLegalDetails",
-    },
-    {
-        id: 4,
-        name: "Photos",
-        component: <Photos />,
-        field: "carPhotos",
-    },
-    {
-        id: 5,
-        name: "Interior",
-        component: <Interior />,
-        field: "interior",
-    },
-    {
-        id: 6,
-        name: "Road Test",
-        component: <RoadTest />,
-        field: "roadTest",
-    },
-    {
-        id: 7,
-        name: "Engine",
-        component: <Engine />,
-        field: "engine",
-    },
-    {
-        id: 8,
-        name: "Front",
-        component: <Front />,
-        field: "front",
-    },
-    {
-        id: 9,
-        name: "Back",
-        component: <Back />,
-        field: "back",
-    },
-    {
-        id: 10,
-        name: "Left",
-        component: <Left />,
-        field: "left",
-    },
-    {
-        id: 11,
-        name: "Right",
-        component: <Right />,
-        field: "right",
-    },
-    {
-        id: 12,
-        name: "Damages",
-        component: <Damages />,
-        field: "damages",
-    },
-];
+import { tabs } from "@/data/otherData";
 
 // ******************** sidebar sheet ********************
 import { Button } from "@/components/ui/button";
@@ -338,9 +252,9 @@ const Main = () => {
         }
     };
 
-    useEffect(() => {
-        console.log("formValues:  ", formValues);
-    }, [formValues]);
+    // useEffect(() => {
+    //     console.log("formValues:  ", formValues);
+    // }, [formValues]);
 
     const validateFormValues = () => {
         return calculatePercentageFilled(formValues) >= 50;
@@ -370,7 +284,7 @@ const Main = () => {
             return;
         }
     };
-    console.log("percentage: ", calculatePercentageFilled(formValues));
+    // console.log("percentage: ", calculatePercentageFilled(formValues));
     return (
         <div className="px-1 h-full bg-white w-full ">
             <div className="flex-col justify-between items-center border-b border-gray-300 shadow pt-2 pb-2 w-full mx-auto ">

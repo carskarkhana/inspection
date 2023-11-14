@@ -1,3 +1,21 @@
+
+import CustomerDetails from "@/components/tabs/CustomerDetails";
+import CarDetails from "@/components/tabs/CarDetails";
+import CarLegalDetails from "@/components/tabs/CarLegalDetails";
+import Photos from "@/components/tabs/Photos";
+import Interior from "@/components/tabs/Interior";
+import RoadTest from "@/components/tabs/RoadTest";
+import Engine from "@/components/tabs/Engine";
+import Front from "@/components/tabs/Front";
+import Back from "@/components/tabs/Back";
+import Left from "@/components/tabs/Left";
+import Right from "@/components/tabs/Right";
+import Damages from "@/components/tabs/Damages";
+
+
+// *************************************************************************
+
+
 export const monthsData = [
     "January",
     "February",
@@ -316,5 +334,246 @@ export const brandModels = {
         "Volvo XC 60",
         "Volvo V90 CROSS COUNTRY",
         "Volvo XC 40",
+    ],
+};
+
+
+// for main.jsx
+export const tabs = [
+    {
+        id: 1,
+        name: "Customer Details",
+        component: <CustomerDetails />,
+        field: "customerDetails",
+    },
+    {
+        id: 2,
+        name: "Car Details",
+        component: <CarDetails />,
+        field: "carDetails",
+    },
+    {
+        id: 3,
+        name: "Car Legal Details",
+        component: <CarLegalDetails />,
+        field: "carLegalDetails",
+    },
+    {
+        id: 4,
+        name: "Photos",
+        component: <Photos />,
+        field: "carPhotos",
+    },
+    {
+        id: 5,
+        name: "Interior",
+        component: <Interior />,
+        field: "interior",
+    },
+    {
+        id: 6,
+        name: "Road Test",
+        component: <RoadTest />,
+        field: "roadTest",
+    },
+    {
+        id: 7,
+        name: "Engine",
+        component: <Engine />,
+        field: "engine",
+    },
+    {
+        id: 8,
+        name: "Front",
+        component: <Front />,
+        field: "front",
+    },
+    {
+        id: 9,
+        name: "Back",
+        component: <Back />,
+        field: "back",
+    },
+    {
+        id: 10,
+        name: "Left",
+        component: <Left />,
+        field: "left",
+    },
+    {
+        id: 11,
+        name: "Right",
+        component: <Right />,
+        field: "right",
+    },
+    {
+        id: 12,
+        name: "Damages",
+        component: <Damages />,
+        field: "damages",
+    },
+];
+
+
+// components tab back .js items
+export const items = {
+    dickyDoorConditions: [
+        "O - Original",
+        "A1 - Minor Scratch",
+        "A2 - Major Scratch (For Multiple Scratches)",
+        "C - Part Rusted/Corroded",
+        "S1 - Repainted - Good Quality",
+        "S2 - Repainted - Bad Quality",
+        "E1 - Minor Dent",
+        "E2 - Major Dent",
+        "W1 - Part with Minor Repairs (Original Sealant)",
+        "W2 - Part with Major Repairs (Sealant Repair or Broken)",
+        "Damage",
+        "XX - Part Replaced in Dicky Door",
+    ],
+    rearWindscreenConditions: [
+        "O - Original",
+        "G1 - Glass Scratches",
+        "G2 - Glass Broken",
+        "G3 - Glass Replaced",
+        "G4 - Glass Chipped",
+    ],
+    rearBumperConditions: [
+        "O - Original",
+        "A1 - Minor Scratch",
+        "A2 - Major Scratch (For Multiple Scratches)",
+        "C - Part Rusted/Corroded",
+        "S1 - Repainted - Good Quality",
+        "S2 - Repainted - Bad Quality",
+        "E1 - Minor Dent",
+        "E2 - Major Dent",
+        "W1 - Part with Minor Repairs (Original Sealant)",
+        "W2 - Part with Major Repairs (Sealant Repair or Broken)",
+        "Damage",
+        "XX - Part Replaced in Rear Bumper",
+    ],
+    spareWheelRimConditions: [
+        "Holes",
+        "Dent",
+        "Corrosion",
+        "Replace",
+        "Repaired",
+        "Missing",
+    ],
+    spareWheelTyreCondition: [
+        "Less Than 1.6 mm",
+        "1.6 to 2 mm",
+        "2.1 to 3 mm",
+        "3.1 to 4 mm",
+        "4.1 to 5 mm",
+        "5.1 to 6 mm",
+        "6.1 to 7 mm",
+        "7.1 to 8 mm",
+    ],
+};
+
+// componet - tab - damages.js
+export const damages = {
+    frontUpperMembraneBonnetPattiRepaired:
+        "Front Upper Membrane (Bonnet Patti) damage/repair",
+    quarterPanelRepaired: "Quarter Panel damage/repair",
+    pillarRepaired: "Pillar damage/repair",
+    apronRepaired: "Apron damage/repair",
+    damageInChassis: " Chassis",
+    chassisRepaired: "Chassis repaired damage/repair",
+    dickyFloorRepaired: "Dicky Floor damage/repair",
+    damageInRunningBord: " Running Bord",
+    runningBordRepaired: "Running Bord damage/repair",
+    dickyFloorReplaced: "Dicky Floor Replaced",
+    damageInDickyFloor: " Dicky Floor",
+    crossMembraneRepaired: "Cross-membrane damage/repair",
+    damageInApron: " Apron",
+    damageInPillar: " Pillar",
+    damageInQuarter: " Quarter",
+    damageInFrontUpperMembraneBonnetPatti:
+        " Front Upper Membrane (Bonnet Patti)",
+    damageInRoof: " Roof",
+    roofRepaired: "Roof damage/repair",
+    damageInFrontLowerMembrane: " Front Lower Membrane",
+    frontLowerMembraneRepaired: "Front Lower Membrane damage/repair",
+    damageInFenderWall: " Fender Wall",
+    fenderWallRepaired: "Fender Wall damage/repair",
+    wheelRimDamage: "Wheel Rim damage/repair",
+    carrierAssemblyBrokenDamagePlasticPart:
+        "Carrier Assembly Broken/item (Plastic Part)",
+    carrierAssemblyReplacedPlasticPart:
+        "Carrier Assembly Replaced (Plastic Part)",
+    fireWallRusted: "Fire Wall Rusted",
+    fireWallRepaired: "Fire Wall damage/repair",
+    cowlTopDamage: "Cowl Top damage/repair",
+    trunkFloorEndPanelDamage: "Trunk Floor End Panel damage/repair",
+    trunkFloorEndPanelRepaired: "Trunk Floor End Panel damage/repair",
+    seatSeatBeltCondition: "Seat/Seat Belt Condition",
+    airbagDeployed: "Airbag Deployed",
+    airbagReplaced: "Airbag Replaced",
+    headlampIssues: "Headlamp Issues",
+    tailLampIssues: "Tail Lamp Issues",
+    keyDamaged: "Key Damaged",
+    tireDamaged: "Tire Damaged",
+};
+
+
+// component - tabs - engine.js
+export const engineItems = {
+    exhaustSmokeCondition: ["Black Smoke", "White Smoke", "Blue Smoke"],
+    turboCondition: [
+        "Non-functional",
+        "Whistling noise",
+        "Noisy",
+        "Leaking",
+        "Missing",
+    ],
+    intercoolerCondition: [
+        "Replaced",
+        "Radiator damaged",
+        "Fan damaged",
+        "Repaired",
+        "Fluids low",
+        "Missing components",
+        "Leaking",
+        "Contaminated coolant",
+        "Hoses damaged",
+    ],
+    silencerCondition: [
+        "Holes",
+        "Dent",
+        "Corrosion",
+        "Replaced",
+        "Repaired",
+        "Noisy Exhaust",
+        "Missing",
+    ],
+    alternatorCondition: [
+        "Corrosion",
+        "Damaged",
+        "Replaced",
+        "Noisy Alternator",
+        "Non-Functional Alternator",
+        "Missing",
+    ],
+    radiatorCondition: [
+        "Contaminated Coolant",
+        "Radiator damaged",
+        "Fan Damage Repaired",
+        "Replaced",
+        "Fluids Low",
+        "Missing Components",
+        "Leaking",
+        "Hoses Damage",
+    ],
+    engineLeakSummary: [
+        "Injector Leak",
+        "Gearbox Leak",
+        "Differential Leak",
+        "Radiator Coolant Leak",
+        "Valve Cover Leak",
+        "Oil Sludge",
+        "Power Steering Oil Leak",
+        "Oil Sump Leak",
     ],
 };
